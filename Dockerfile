@@ -8,4 +8,8 @@ RUN curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packa
     echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" \
     > /etc/apt/sources.list.d/kubernetes.list
 
+# ติดตั้ง kubectl
+RUN apt-get update && apt-get install -y kubectl && \
+    rm -rf /var/lib/apt/lists/*
+
 ENV TZ Asia/Bangkok
